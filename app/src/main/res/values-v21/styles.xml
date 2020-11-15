@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.RoundedCorner" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="ElevatedView">
+        <item name="android:background">@drawable/bg_rounded_corner</item>
+        <item name="android:elevation">@dimen/very_small</item>
+    </style>
+</resources>

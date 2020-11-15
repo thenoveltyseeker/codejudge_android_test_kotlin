@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Application</string>
+
+    <string name="restaurant_icon">Restaurant Icon</string>
+    <string name="restaurant_open">Open now</string>
+    <string name="restaurant_closed">Closed for delivery</string>
 </resources>

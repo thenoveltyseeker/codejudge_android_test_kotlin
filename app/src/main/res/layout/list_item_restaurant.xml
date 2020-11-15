@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingStart="@dimen/large"
+    android:paddingTop="@dimen/medium"
+    android:paddingEnd="@dimen/large"
+    android:paddingBottom="@dimen/medium">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivRestaurantIcon"
+        style="@style/ElevatedView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/small"
+        android:contentDescription="@string/restaurant_icon"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/guideLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.RoundedCorner"
+        tools:src="@tools:sample/avatars" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".25" />
+
+    <TextView
+        android:id="@+id/tvRestaurantName"
+        style="@style/RestaurantItemLabel"
+        android:layout_marginEnd="@dimen/small"
+        android:layout_marginRight="@dimen/small"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tvRating"
+        app:layout_constraintStart_toEndOf="@+id/guideLine"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/cities" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/very_small"
+        android:background="@drawable/bg_rounded_corner"
+        android:paddingStart="@dimen/medium"
+        android:paddingTop="@dimen/small"
+        android:paddingEnd="@dimen/medium"
+        android:paddingBottom="@dimen/small"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="4.6" />
+
+    <TextView
+        android:id="@+id/tvRestaurantPricingLLevel"
+        style="@style/RestaurantItemLabel"
+        android:layout_marginTop="@dimen/small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideLine"
+        app:layout_constraintTop_toBottomOf="@+id/tvRestaurantName"
+        tools:text="Moderately expensive" />
+
+    <TextView
+        android:id="@+id/tvRestaurantOperationalStatus"
+        style="@style/RestaurantItemLabel"
+        android:layout_marginTop="@dimen/small"
+        android:textColor="@color/persian_red"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideLine"
+        app:layout_constraintTop_toBottomOf="@+id/tvRestaurantPricingLLevel"
+        tools:text="Temporarily closed" />
+
+    <TextView
+        android:id="@+id/tvRestaurantOpenStatus"
+        style="@style/RestaurantItemLabel"
+        android:layout_marginTop="@dimen/small"
+        android:textColor="@color/clementine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideLine"
+        app:layout_constraintTop_toBottomOf="@+id/tvRestaurantOperationalStatus"
+        tools:text="Closed for delivery" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package org.codejudge.application.helper;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
+
 import org.codejudge.application.R;
 
 import java.io.IOException;
