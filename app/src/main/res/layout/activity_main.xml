@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -9,15 +8,19 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-    <androidx.appcompat.widget.SearchView
+    <EditText
         android:id="@+id/edit_search"
         style="@style/ElevatedView"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:layout_margin="@dimen/large"
-        app:iconifiedByDefault="false"
-        app:queryBackground="@null"
-        app:queryHint="Search for restaurants" />
+        android:hint="@string/search_for_restaurants"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:paddingStart="@dimen/medium"
+        android:paddingLeft="@dimen/medium"
+        android:paddingEnd="@dimen/medium"
+        android:paddingRight="@dimen/medium" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRestaurants"

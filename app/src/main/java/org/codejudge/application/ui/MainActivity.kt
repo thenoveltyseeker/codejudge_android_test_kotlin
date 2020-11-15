@@ -1,8 +1,9 @@
 package org.codejudge.application.ui
 
 import android.os.Bundle
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -20,20 +21,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val rvRestaurants = findViewById<RecyclerView>(R.id.rvRestaurants)
-        val etSearchView = findViewById<SearchView>(R.id.edit_search)
+        val etSearchView = findViewById<EditText>(R.id.edit_search)
         subscribeData()
         rvRestaurants.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = restaurantsAdapter
         }
 
-        etSearchView.setOnQueryTextListener(
-                object : SearchView.OnQueryTextListener {
-                    override fun onQueryTextSubmit(searchQuery: String?) = performRestaurantSearch(searchQuery)
-
-                    override fun onQueryTextChange(searchQuery: String?) = performRestaurantSearch(searchQuery)
-                }
-        )
+        etSearchView.addTextChangedListener {
+            performRestaurantSearch(it.toString())
+        }
     }
 
     private fun subscribeData() {
@@ -50,10 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun performRestaurantSearch(searchQuery: String?): Boolean {
-        return searchQuery?.let {
-            restaurantsViewModel.searchRestaurants(searchQuery)
-            true
-        } ?: false
+    private fun performRestaurantSearch(searchQuery: String) {
+        restaurantsViewModel.searchRestaurants(searchQuery)
     }
 }
